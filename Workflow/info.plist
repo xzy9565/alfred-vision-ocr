@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.xzy9565.alfred.vision-ocr</string>
+	<key>connections</key>
+	<dict>
+		<key>544194D6-FB50-4C14-8C0E-41F3B55A539A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DE847EFE-F763-4140-9FB5-151148C89617</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>98B22C99-F351-4099-BFF0-F22B1484C988</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>544194D6-FB50-4C14-8C0E-41F3B55A539A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>FCE6992B-7937-428D-BB6B-FF4B7B3149DD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>544194D6-FB50-4C14-8C0E-41F3B55A539A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>xzy9565</string>
+	<key>description</key>
+	<string>Lightning-fast, offline Apple Vision OCR. Clipboard-first, zero disk I/O, multi-language.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Vision OCR</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>argumenttext</key>
+				<string>cap</string>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>118</integer>
+				<key>hotmod</key>
+				<integer>8650752</integer>
+				<key>hotstring</key>
+				<string>F4</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>FCE6992B-7937-428D-BB6B-FF4B7B3149DD</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>./ocr_apple.sh</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>544194D6-FB50-4C14-8C0E-41F3B55A539A</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{var:content}</string>
+				<key>title</key>
+				<string>{var:title}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>DE847EFE-F763-4140-9FB5-151148C89617</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>ocr</string>
+				<key>subtext</key>
+				<string>Extract text from clipboard image, or capture screen if empty (type 'cap' to force capture)</string>
+				<key>text</key>
+				<string>Vision OCR</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>98B22C99-F351-4099-BFF0-F22B1484C988</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Vision OCR
+
+Lightning-fast, 100% offline Optical Character Recognition (OCR) for Alfred, powered by Apple Vision Framework.
+
+## Features
+- **Clipboard-First**: Directly recognizes image data in your clipboard (copied from WeChat, CleanShot X, browser, etc.) in ~15ms with zero disk I/O.
+- **Interactive Screen Capture Fallback**: If clipboard does not contain an image, automatically triggers interactive screen capture (screencapture -i).
+- **100% Offline &amp; Private**: Uses macOS native Apple Vision framework. No cloud APIs, no network calls, zero data leaves your Mac.
+- **Multi-language Out of the Box**: Supports English, Simplified Chinese, Traditional Chinese, Japanese, and Korean.
+
+## Usage
+- Press Ctrl + F4 or type keyword ocr in Alfred:
+  - If you already copied/snapped an image to clipboard, it recognizes it instantly and replaces clipboard with text.
+  - If clipboard is empty or non-image, it opens crosshairs for you to select a screen area.
+- Keyword ocr cap: Force interactive screen selection.
+</string>
+	<key>uidata</key>
+	<dict>
+		<key>544194D6-FB50-4C14-8C0E-41F3B55A539A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>230</integer>
+			<key>ypos</key>
+			<integer>150</integer>
+		</dict>
+		<key>98B22C99-F351-4099-BFF0-F22B1484C988</key>
+		<dict>
+			<key>xpos</key>
+			<integer>45</integer>
+			<key>ypos</key>
+			<integer>270</integer>
+		</dict>
+		<key>DE847EFE-F763-4140-9FB5-151148C89617</key>
+		<dict>
+			<key>xpos</key>
+			<integer>470</integer>
+			<key>ypos</key>
+			<integer>150</integer>
+		</dict>
+		<key>FCE6992B-7937-428D-BB6B-FF4B7B3149DD</key>
+		<dict>
+			<key>xpos</key>
+			<integer>45</integer>
+			<key>ypos</key>
+			<integer>150</integer>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variables</key>
+	<dict/>
+	<key>variablesdontexport</key>
+	<array>
+		<string>test_env</string>
+	</array>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/xzy9565/alfred-vision-ocr</string>
+</dict>
+</plist>
